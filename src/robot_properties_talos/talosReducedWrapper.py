@@ -36,7 +36,7 @@ class TalosReducedRobot(PinBulletWrapper):
                 self.urdf_path,
                 pos, orn,
                 flags=pybullet.URDF_USE_INERTIA_FROM_FILE,
-                useFixedBase=True)
+                useFixedBase=False)
         pybullet.getBasePositionAndOrientation(self.robotId)
         
         # Create the robot wrapper in pinocchio (reduced model)
@@ -117,7 +117,7 @@ class TalosReducedRobot(PinBulletWrapper):
             pybullet.resetJointState(self.robotId, bullet_joint_map[joint_name], qref_locked_map[joint_name], 0.)
         pybullet.setJointMotorControlArray(self.robotId, 
                                            jointIndices = locked_joint_ids_bullet, 
-                                           controlMode = pybullet.POSITION_CONTROL,
+                                           controlMode = pybullet.VELOCITY_CONTROL,
                                            targetPositions = qref_locked,
                                            targetVelocities = np.zeros(len(locked_joint_ids_bullet)))
 

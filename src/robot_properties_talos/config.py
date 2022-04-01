@@ -37,7 +37,7 @@ class TalosArmConfig(TalosAbstract):
     Config class for the Talos left arm 
     '''
     loader = example_robot_data.robots_loader.TalosArmLoader()
-    urdf_path   = loader.urdf_path
+    urdf_path   = loader.df_path
     meshes_path = loader.model_path
     robot_name  = 'talos_arm'
     # Pinocchio model.
@@ -82,7 +82,7 @@ class TalosFullConfig(TalosAbstract):
     Config class for the Talos full model 
     '''
     loader = example_robot_data.robots_loader.TalosLoader()
-    urdf_path   = loader.urdf_path
+    urdf_path   = loader.df_path
     meshes_path = loader.model_path
     robot_name  = 'talos'
     # Pinocchio model.
