@@ -129,10 +129,18 @@ class TalosReducedRobot(PinBulletWrapper):
                     self.robotId, 
                     self.pin_robot,
                     controlled_joints,
-                    ['arm_right_7_joint'],
+                    ['arm_right_7_joint', 
+                     'gripper_right_joint', 
+                     'gripper_right_inner_double_joint', 
+                     'gripper_right_fingertip_1_joint', 
+                     'gripper_right_fingertip_2_joint', 
+                     'gripper_right_motor_single_joint', 
+                     'gripper_right_inner_single_joint',
+                     'gripper_right_fingertip_3_joint'],
                     useFixedBase=True) # no floating base for reduced model
         self.nb_dof = self.nv
 
+        self.locked_joint_ids_bullet = locked_joint_ids_bullet
 
     def forward_robot(self, q=None, dq=None):
         if q is None:
